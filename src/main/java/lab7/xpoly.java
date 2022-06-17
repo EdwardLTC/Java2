@@ -21,26 +21,23 @@ public class xpoly {
         return check;
     }
 
-    public static boolean isCardNumberUsingHasMap(String number) {
+    public static boolean isCardNumberUsingHasMap(String number1, String number2) {
+        List<String> myList1 = new ArrayList<String>(Arrays.asList(number1.split("")));
+        List<String> myList2 = new ArrayList<String>(Arrays.asList(number2.split("")));
+        List<String> myList3 = new ArrayList<String>();
+        // Map<String, Long> output = myList.stream().collect(Collectors.groupingBy(n -> n, Collectors.counting()));
         
-        String[] s = number.split("");
-        List<String> myList = Arrays.asList(s);
+        BigInteger num = new BigInteger(Long.toString(number1)).add(new BigInteger((Long.toString(number2))));
+        System.err.println(num);
         
-        Map<String, Long> output = myList.stream().collect(Collectors.groupingBy(n -> n, Collectors.counting()));
+        return true;
+    }
 
-        int tong = 0;
-        boolean check;
-        for (Map.Entry<String, Long> entry : output.entrySet()) {
-            String key = entry.getKey();
-            long value = entry.getValue();
-            if(key.isBlank())
-                continue;
-            tong += Integer.parseInt(key) * value;   
-        }
-        System.out.println(tong);
+    public static void main(String[] args) {
+        String n1 = "12345678";
+        String n2 = "12345678";
 
-        check = tong % 2 == 0;
-        return check;
+        isCardNumberUsingHasMap(n1,n2);
     }
 
 }
