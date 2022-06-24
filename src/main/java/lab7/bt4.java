@@ -123,7 +123,7 @@ public class bt4 extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
             String value = STR1.getText() ;
-            result.setText(String.valueOf(xpoly.isCardNumberUsingHasMap(value)));
+            result.setText(String.valueOf(xpoly.isCardNumber(value)));
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(this, "Error " + e, "Error",
